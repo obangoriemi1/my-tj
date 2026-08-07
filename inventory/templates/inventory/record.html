@@ -1,0 +1,41 @@
+{% extends 'inventory/base.html' %}
+ 
+{% block content %}
+
+
+
+<div class="card">
+  <div class="card-header"><strong>
+    	
+  </div>
+  <div class="card-body">
+
+
+
+<p class="card-text">
+<strong>Product Nmae: </strong>{{ customer_record.product_name }}</p>
+
+<p class="card-text">
+<strong>Buying Price: </strong>{{ customer_record.buying_price }}
+</p>
+
+<p class="card-text">
+<strong>Selling Price: </strong>{{ customer_record.selling_price }}</p>
+
+<p class="card-text">
+<strong>Profit: </strong>{{ customer_record.profit}}</p>
+
+    
+    
+  </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+		
+
+{% endblock %}

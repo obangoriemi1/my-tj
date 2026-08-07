@@ -1,0 +1,56 @@
+
+
+{% extends "inventory/base.html"%}
+
+{% block content%}
+
+    
+    {% if user.is_authenticated %}
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Client Name</th>
+            <th scope="col">Paid</th>
+            <th scope="col">Remaing </th>
+            <th scope="col">Credit or Deposit </th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+      {% if client_records %}
+          {% for client_record in client_records %}
+              <tr>
+                {% comment %} <td><a href="{% url 'record' record.id %}"> {{ forloop.counter }}</a></td> {% endcomment %}
+                  <td><a href="{% url 'client' client_record.id %}">{{ client_record.client_name }}</td></a>
+                  <td>{{ client_record.paid}}ksh</td>
+                  <td>{{ client_record.remaining }}ksh</td>
+                  <td>{{ client_record.credit_deposit}}</td>
+                  <td>{{ client_record.created_at }}</td>
+              </tr>
+      {% endfor %}
+    {%endif %}
+
+    {% else%}
+    <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">User Name</label>
+          <input autocomplete="off" type="text" class="form-control" name="username" required >
+          
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Password</label>
+          <input autocomplete="off" type="password" class="form-control" name="password" required>
+        </div>
+        <div class="mb-3 form-check">
+        
+          
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+{% endif %}
+  
+{% endblock%}

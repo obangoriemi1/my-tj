@@ -1,0 +1,25 @@
+{% extends "inventory/base.html"%}
+
+{% block title %}
+ calculate prices
+{% endblock %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h1>Inventory Calculations</h1>
+   <div class="card ">
+    
+    <div class="container c">
+      <h3>Buying Price</h3>
+      <p>{{ total_buying_price }}</p>
+      <h3>Selling Price</h3>
+      <p>{{ total_selling_price }}</p>
+      <h3>Profit</h3>
+      <p>{{ profit }}</p>
+    </div>
+   
+   </div>
+   <br/>
+   <a class="btn btn-primary" href="{% url 'home'%}">Back<a>
+</div>
+{% endblock%}

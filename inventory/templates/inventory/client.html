@@ -1,0 +1,44 @@
+
+
+
+{% extends 'inventory/base.html' %}
+ 
+{% block content %}
+
+
+
+<div class="card">
+  <div class="card-header"><strong>
+    	
+  </div>
+  <div class="card-body">
+
+
+
+<p class="card-text">
+<strong>Client Nmae: </strong>{{ client_record.product_name }}</p>
+
+<p class="card-text">
+<strong>Paid: </strong>{{ client_record.paid }}
+</p>
+
+<p class="card-text">
+<strong>Remaining: </strong>{{ client_record.remaining }}</p>
+
+<p class="card-text">
+<strong>Credit/Deposit: </strong>{{ client_record.credit_deposit}}</p>
+
+    
+    
+  </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'delete_client' client_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_client' client_record.id %}" class="btn btn-secondary">Update Record</a>
+		
+
+{% endblock %}
