@@ -26,7 +26,7 @@
                     <td>{{ record.buying_price }} Ksh</td>
                     <td>{{ record.selling_price }} Ksh</td>
                     <td>{{ record.profit }} Ksh</td>
-                    <td>{{ record.created_at }}</td>
+                    <td>{{ record.created_at|date:"M d, Y" }}</td>
                     <td>
                         <a href="{% url 'record' record.id %}">
                             {{ forloop.counter }}
