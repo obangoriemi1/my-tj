@@ -3,3 +3,4 @@
 # *.py[cod]
 # *.sqlite3
 # .vscode/
+.env
